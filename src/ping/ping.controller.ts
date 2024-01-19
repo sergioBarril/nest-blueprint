@@ -8,7 +8,6 @@ export class PingController {
   /**
    * Ping endpoint
    *
-   * @param x - Some number
    * @returns Pong answer
    */
   @Get()
