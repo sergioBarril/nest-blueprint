@@ -12,6 +12,8 @@ export class PingController {
    */
   @Get()
   ping() {
-    return this.pingService.ping();
+    return {
+      ping: this.pingService.ping(),
+    };
   }
 }
