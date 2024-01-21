@@ -11,7 +11,18 @@ export class PingService {
    */
   ping() {
     this.logger.log("Ping method called");
-
     return "Pong!";
+  }
+
+  /**
+   * Echo method
+   *
+   * @param message - The message to echo
+   * @returns The message
+   */
+  echo(message: string) {
+    this.logger.log("Echo method called");
+
+    return message;
   }
 }

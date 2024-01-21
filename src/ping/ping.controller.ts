@@ -1,5 +1,13 @@
-import { Controller, Get } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+} from "@nestjs/common";
 import { PingService } from "./ping.service";
+import { EchoDto } from "./schemas/echo.schema";
 
 @Controller("ping")
 export class PingController {
@@ -14,6 +22,20 @@ export class PingController {
   ping() {
     return {
       ping: this.pingService.ping(),
+    };
+  }
+
+  /**
+   * Echo endpoint
+   *
+   * @param input - The message to echo
+   * @returns The message
+   */
+  @Post("echo")
+  @HttpCode(HttpStatus.OK)
+  echo(@Body() { input }: EchoDto) {
+    return {
+      echo: this.pingService.echo(input),
     };
   }
 }
